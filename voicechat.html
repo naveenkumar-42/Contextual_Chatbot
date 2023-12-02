@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIT BOT</title>
+
+    <link rel="icon" type="image/x-icon" href="/img/icon.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+</head>
+
+<body>
+    <!-- Header Design -->
+    <header class="header">
+        <img style="font-size:36px;color:white; margin-left:0;" src="/img/icon.png" width="50" height="50" alt=""
+            title="" class="img-small">
+        <a style="margin-right:350px;" href="#" class="logo">BIT<span class="animate" style="--i:1;">BOT</span></a>
+        <div class="bx bx-menu" id="menu-icon"><span class="animate" style="--i:2;"></span></div>
+        <nav class="navbar">
+            <a href="#" class="active">Home</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="bitchat.html">BitChat</a>
+            <a href="voicechat.html">Voicechat</a>
+            <a href="contact.html">Contact</a>
+            <a class="log" style="color: #00fa9a;" href="#">Log-out</a>
+            <a class="darkmode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                    class="bi bi-brightness-high" viewBox="0 0 16 16">
+                    <path
+                        d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
+                </svg>
+            </a>
+            <span class="active-nav"></span>
+            <span class="animate" style="--i:2;"></span>
+        </nav>
+    </header>
+<style>
+    :root {
+        --body-bg: #081b29;
+        --msger-bg: #112e42;
+        --border: 2px solid #ddd;
+        --left-msg-bg: #E0FFFF;
+        --right-msg-bg: #E0FFFF;
+    }
+
+    html {
+        box-sizing: border-box;
+    }
+
+    *,
+    *:before,
+    *:after {
+        margin: 0;
+        padding: 0;
+        box-sizing: inherit;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin-top: 10px;
+        background: #081b29;
+        font-family: Helvetica, sans-serif;
+    }
+
+    section {
+        padding: 36px 2% 36px;
+
+    }
+
+    .msger {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 867px;
+        margin-top: 200px;
+        border: 2px solid black;
+        border-radius: 2px;
+        background: #112e42;
+        height: 300px;
+        box-shadow: 0 15px 15px -5px rgba(0, 0, 0, 0.2);
+    }
+
+    .msger-header {
+        /* display: flex; */
+        font-size: medium;
+        justify-content: space-between;
+        padding: 1px;
+        text-align: center;
+        border-bottom: 2px solid #ddd;
+        background: #eee;
+        color: #666;
+    }
+
+    .msger-chat {
+        flex: 1;
+        overflow-y: auto;
+        padding: 10px;
+    }
+
+    .msger-chat::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .msger-chat::-webkit-scrollbar-track {
+        background: #ddd;
+    }
+
+    .msger-chat::-webkit-scrollbar-thumb {
+        background: #bdbdbd;
+    }
+
+    .msg {
+        display: flex;
+        align-items: flex-end;
+        margin-bottom: 10px;
+    }
+
+    .msg-bubble {
+        max-width: 450px;
+        padding: 15px;
+        border-radius: 15px;
+        background: #112e42;
+    }
+
+    .msg-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .msg-info-name {
+        margin-right: 10px;
+        font-weight: bold;
+    }
+
+    .msg-info-time {
+        font-size: 0.85em;
+    }
+
+    .left-msg .msg-bubble {
+        border-bottom-left-radius: 0;
+    }
+
+    .right-msg {
+        flex-direction: row-reverse;
+    }
+
+    .right-msg .msg-bubble {
+        background: #112e42;
+        color: #fff;
+        border-bottom-right-radius: 0;
+    }
+
+    .msger-inputarea {
+        display: flex;
+        padding: 10px;
+        border-top: 2px solid #ddd;
+        background: #eee;
+    }
+
+    .msger-inputarea * {
+        padding: 10px;
+        border: none;
+        border-radius: 3px;
+        font-size: 1em;
+    }
+
+    .msger-input {
+        flex: 1;
+        background: #ddd;
+    }
+
+    .msger-send-btn {
+        margin-left: 10px;
+        background: rgb(0, 196, 65);
+        color: #fff;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .msger-send-btn:hover {
+        background: rgb(0, 180, 50);
+    }
+
+    .msger-chat {
+        background-color: #fcfcfe;
+    }
+
+    .fas fa-times {
+        position: fixed;
+        right: 0;
+    }
+</style>
+
+
+<body>
+    <!-- partial:index.partial.html -->
+    <section class="msger">
+        <header class="msger-header">
+            <div class="msger-header-title">
+
+                <i class="fas fa-bug"></i> Chatbot <i class="fas fa-bug"></i>
+                <a href="/"><i class="fas fa-times"
+                        style="right:0;position:relative;display:block;float:right;"></i></a>
+            </div>
+        </header>
+
+        <main class="msger-chat">
+            <div class="msg left-msg">
+
+
+
+                <div class="msg-bubble">
+                    <div class="msg-info">
+                        <div class="msg-info-name">BitBot</div>
+                        <div class="msg-info-time">00:00</div>
+                    </div>
+
+                    <div class="msg-text">
+                        Hey I am BitBot! How can I help you ?😄
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <form class="msger-inputarea">
+            <input type="text" class="msger-input" id="textInput" placeholder="Speak or Type your message...">
+            <button type="button" class="msger-send-btn" onclick="startVoice()">Voice</button>
+            <button type="submit" class="msger-send-btn" style="display:none" id="sendBtn">Send</button>
+            <button type="button" class="msger-send-btn" onclick="clearInput()">Clear</button>
+        </form>
+    </section>
+    <!-- partial -->
+    <script src='https://use.fontawesome.com/releases/v5.0.13/js/all.js'></script>
+
+
+
+
+    <script>
+
+        const msgerForm = get(".msger-inputarea");
+        const msgerInput = get(".msger-input");
+        const msgerChat = get(".msger-chat");
+
+
+        // Icons made by Freepik from www.flaticon.com
+        const BOT_IMG = "{% static 'assets/img/roboprofile.jpg' %}";
+        const PERSON_IMG = "{% static 'assets/img/personprofile.jpg' %}";
+
+        const BOT_NAME = " BitBot";
+        const PERSON_NAME = "You";
+
+        msgerForm.addEventListener("submit", event => {
+            event.preventDefault();
+
+            const msgText = msgerInput.value;
+            if (!msgText) return;
+
+            appendMessage(PERSON_NAME, PERSON_IMG, "right", msgText);
+            msgerInput.value = "";
+            botResponse(msgText);
+        });
+
+        function appendMessage(name, img, side, text) {
+            //   Simple solution for small apps
+            const msgHTML = `
+<div class="msg ${side}-msg">
+  <div class="" style="background-image: url(${img})"></div>
+
+  <div class="msg-bubble">
+    <div class="msg-info">
+      <div class="msg-info-name">${name}</div>
+      <div class="msg-info-time">${formatDate(new Date())}</div>
+    </div>
+
+    <div class="msg-text">${text}</div>
+  </div>
+</div>
+`;
+
+            msgerChat.insertAdjacentHTML("beforeend", msgHTML);
+            msgerChat.scrollTop += 500;
+        }
+
+
+        function botResponse(rawText) {
+            // Bot Response
+            $.get('/getResponse', { msg: rawText }).done(function (data) {
+                console.log(rawText);
+                console.log(data);
+                const msgText = data.response;
+                appendMessage(BOT_NAME, BOT_IMG, "left", data); // Use 'data' directly
+            })
+        }
+
+
+
+
+        //         const msgText = data.response;
+        //         appendMessage(BOT_NAME, BOT_IMG, "left", msgText);
+        //     });
+        // }
+
+        // function GetUserResponse(){
+        //   var userText = $('#textInput').val();
+        //   var userHTML = "<p class='userText'>User: <span>"+userText+"</span/></p>"
+        //     $('#textInput').val("")
+        //     $('#chatbot').append
+        //     $.get{'',{userMessage:userText}.done{function{data}
+        //   }}
+        // }
+
+
+
+        // Utils
+        function get(selector, root = document) {
+            return root.querySelector(selector);
+        }
+
+        function formatDate(date) {
+            const h = "0" + date.getHours();
+            const m = "0" + date.getMinutes();
+
+            return `${h.slice(-2)}:${m.slice(-2)}`;
+        }
+
+
+        window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+        const recognition = new SpeechRecognition();
+
+        recognition.addEventListener('result', e => {
+            const transcript = Array.from(e.results)
+                .map(result => result[0])
+                .map(result => result.transcript).join(' ');
+            document.getElementById("textInput").value = transcript;
+            console.log(transcript);
+            setTimeout(function () { document.getElementById("sendBtn").click() }, 3000);
+        });
+
+
+
+        function startVoice() {
+            recognition.start();
+        }
+
+        function clearInput() {
+            document.getElementById("textInput").value = "";
+        }
+
+
+
+    </script>
+
+
+    <script>
+        // Define a dictionary of predefined questions and answers
+        const qaDictionary = {
+            "hi": "Hi! How can I assist you <a herf='index.html'> today </a>?",
+            "hello": "Hello! How can I assist you today?",
+            "how are you ?": "I'm just a bot, but I'm here to help. What can I do for you?",
+            "what is your name ?": "I'm Naveen's Bot, your friendly chatbot.",
+            "goodbye": "Goodbye! If you have more questions, feel free to ask.",
+            "what is meant by ssig in bannari amman institute of technology ?": "SSIG stands for Student Special Interest Group at BIT.",
+            "what is the full form of ssig ?": "SSIG stands for Student Special Interest Group at BIT.",
+            "what is the use of ssig in bit ?": "In the SSIG group, students collaborate to complete their SSIG targets and engage in various activities.",
+            "what is information technology ?": "Information Technology (IT) is the use of computers, software, networks, and other technology to store, process, and transmit data for various purposes.",
+            "what are the different branches of IT ?": "Some branches of IT include software development, network administration, cybersecurity, database management, and web development, among others.",
+            "what is programming ?": "Programming is the process of creating and writing instructions for a computer to execute. Programmers use programming languages to develop software and applications.",
+            "what is cybersecurity ?": "Cybersecurity is the practice of protecting computer systems, networks, and data from theft, damage, or unauthorized access. It involves measures to prevent and respond to cyber threats.",
+            "what is cloud computing ?": "Cloud computing is a technology that allows users to access and use computing resources (such as servers and storage) over the internet. It provides scalability and flexibility for various IT applications.",
+            "how does data encryption work ?": "Data encryption is the process of converting data into a code to prevent unauthorized access. It uses algorithms and keys to encode and decode the information securely.",
+            "what is a database ?": "A database is a structured collection of data that can be easily accessed, managed, and updated. It's commonly used to store and retrieve information in various IT applications.",
+            "what is the role of an IT support specialist ?": "An IT support specialist helps users with technical issues, troubleshoots problems, and provides assistance with hardware and software. They ensure that IT systems run smoothly.",
+            "what are the emerging trends in IT ?": "Emerging trends in IT include artificial intelligence, machine learning, Internet of Things (IoT), blockchain technology, and 5G networks, among others.",
+            "what is the Internet of Things (IoT) ?": "IoT refers to the network of interconnected physical devices and objects that can communicate and exchange data with each other over the internet.",
+            "explain agile software development ": "Agile is an iterative and flexible approach to software development, where projects are divided into small increments, and collaboration and adaptability are emphasized.",
+            "what is a firewall ?": "A firewall is a network security device or software that monitors and controls incoming and outgoing network traffic to protect a network from unauthorized access and threats.",
+            "what is open-source software ?": "Open-source software is software with a source code that is publicly available and can be modified and distributed by anyone. It often promotes collaboration and community-driven development.",
+            "what is a computer virus ?": "A computer virus is malicious software that can infect and damage a computer system. It spreads by attaching itself to legitimate programs and files.",
+            "what is a data breach ?": "A data breach is a security incident in which sensitive or confidential data is accessed, disclosed, or stolen by unauthorized individuals or entities.",
+            "what is virtualization ?": "Virtualization is the process of creating a virtual version of a resource, such as a server, storage device, or operating system, to improve resource utilization and management.",
+            "what is cloud security ?": "Cloud security involves measures and strategies to protect data and applications stored in cloud environments, ensuring data privacy, compliance, and protection against cyber threats.",
+            "how does blockchain work ?": "Blockchain is a decentralized and distributed ledger technology that records transactions in a secure and immutable way. It uses cryptographic techniques to ensure trust and transparency.",
+            "what is big data ?": "Big data refers to extremely large and complex data sets that are challenging to process and analyze using traditional data management tools. It often requires specialized technologies and techniques.",
+            "what is a computer network ?": "A computer network is a collection of interconnected devices and computers that can communicate and share resources, such as files and printers.",
+            "what is a URL ?": "A URL (Uniform Resource Locator) is a web address that specifies the location of a resource on the internet, including web pages, documents, or other files.",
+            "what is a programming language ?": "A programming language is a formal language used to instruct a computer to perform specific tasks. Examples include Python, Java, C++, and JavaScript.",
+            "what is cloud storage ?": "Cloud storage is a service that allows data to be stored and accessed over the internet, often provided by third-party providers. It offers data backup and accessibility from anywhere.",
+            "what is a software update ?": "A software update is a release of a newer version of software or an application that typically includes bug fixes, new features, and security enhancements.",
+            "what is a data center ?": "A data center is a facility housing computer systems and networking equipment used for data storage, processing, and management.",
+            "what is machine learning ?": "Machine learning is a subset of artificial intelligence that enables computers to learn from data and make predictions or decisions without being explicitly programmed.",
+            "what is a router ?": "A router is a networking device that forwards data packets between computer networks. It plays a crucial role in directing internet traffic between devices.",
+            "what is an API ?": "An API (Application Programming Interface) is a set of rules and protocols that allow different software applications to communicate and interact with each other.",
+            "what is a data scientist ?": "A data scientist is a professional who uses statistical analysis, data mining, and programming to analyze large datasets and extract valuable insights.",
+            "what is a computer virus scanner": "A computer virus scanner, also known as antivirus software, is a program that scans and detects computer viruses and malware to protect a computer from infections.",
+            "what is a LAN (Local Area Network)": "A LAN is a network that connects devices within a limited geographical area, such as a home, office, or campus, enabling local data sharing and communication.",
+            "what is a WAN (Wide Area Network)": "A WAN is a network that spans a larger geographical area, connecting multiple LANs and allowing data transmission over longer distances.",
+            "what is a data backup": "Data backup is the process of creating copies of data to ensure its availability in case of data loss due to hardware failures, accidental deletion, or other issues.",
+            "what is a data warehouse": "A data warehouse is a central repository that stores and manages large volumes of data from various sources, allowing for complex data analysis and reporting.",
+            "what is a 404 error": "A 404 error is a standard HTTP response code indicating that the server could not find the requested webpage or resource on a website.",
+            "what is artificial intelligence (AI)": "AI is the development of computer systems that can perform tasks typically requiring human intelligence, such as problem-solving, pattern recognition, and decision-making.",
+            "what is a web browser": "A web browser is a software application that allows users to access and view websites on the internet. Popular examples include Chrome, Firefox, and Safari.",
+            "what is data mining": "Data mining is the process of discovering patterns and information from large datasets using techniques like statistical analysis, machine learning, and pattern recognition.",
+            "what is a computer algorithm": "A computer algorithm is a step-by-step set of instructions or rules designed to solve a specific problem or perform a particular task.",
+            "default": "Sorry! I can't help you, either you can use our <a style='color:white' herf='{% url 'bit' %}'>bitchat</a>."
+        };
+
+        // Function to handle user input and provide responses
+        function botResponse(userInput) {
+            const input = userInput.toLowerCase();
+            const response = qaDictionary[input] || qaDictionary["default"];
+
+            appendMessage(BOT_NAME, BOT_IMG, "left", response);
+        }
+
+        // Rest of your code...
+
+        msgerForm.addEventListener("submit", event => {
+            event.preventDefault();
+
+            const msgText = msgerInput.value.trim().toLowerCase(); // Convert to lowercase and remove leading/trailing whitespace
+            if (!msgText) return;
+
+            appendMessage(PERSON_NAME, PERSON_IMG, "right", msgText);
+            msgerInput.value = "";
+            botResponse(msgText);
+        });
+
+        // Rest of your code...
+    </script>
+</body>
+
+</html>

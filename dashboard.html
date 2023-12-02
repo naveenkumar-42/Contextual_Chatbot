@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIT BOT</title>
+
+    <link rel="icon" type="image/x-icon" href="/img/icon.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+</head>
+
+<body>
+    <!-- Header Design -->
+    <header class="header">
+        <img style="font-size:36px;color:white; margin-left:0;" src="/img/icon.png" width="50" height="50" alt=""
+            title="" class="img-small">
+        <a style="margin-right:350px;" href="#" class="logo">BIT<span class="animate" style="--i:1;">BOT</span></a>
+        <div class="bx bx-menu" id="menu-icon"><span class="animate" style="--i:2;"></span></div>
+        <nav class="navbar">
+            <a href="#" class="active">Home</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="bitchat.html">BitChat</a>
+            <a href="voicechat.html">Voicechat</a>
+            <a href="chatpdf.html">ChatPdf</a>
+            <a href="contact.html">Contact</a>
+            <a class="log" style="color: #00fa9a;" href="#">Log-out</a>
+            <a class="darkmode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                    class="bi bi-brightness-high" viewBox="0 0 16 16">
+                    <path
+                        d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
+                </svg>
+            </a>
+            <span class="active-nav"></span>
+            <span class="animate" style="--i:2;"></span>
+        </nav>
+    </header>
+
+    <link rel="icon" sizes="192x192" href="icon.png">
+
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+        :root {
+            --bg-color: #081b29;
+            --secondary-bg-color: #112e42;
+            --text-color: #E0FFFF;
+            --main-color: #00FA9A;
+        }
+
+        body {
+            font-family: "Montserrat";
+            background-color: var(--bg-color);
+            margin-top: 40px;
+        }
+
+
+
+        i {
+            font-size: 12px;
+            clear: both;
+            font-style: normal;
+            display: block;
+        }
+
+        h2 {
+            margin: 10px;
+            color: white;
+        }
+
+        #app {
+            display: flex;
+            flex-flow: column wrap;
+            margin: 0 auto;
+            height: auto;
+            justify-content: flex-start;
+            align-content: center;
+            align-items: center;
+            border: .2rem solid var(--main-color);
+
+        }
+
+        #app>* {
+            border-radius: 2px;
+            transition: all ease 0.3s;
+
+        }
+
+        #app>div {
+            position: relative;
+            width: 500px;
+            padding: 8px;
+            margin: 10px;
+            border: .2rem solid var(--main-color);
+            color: white;
+        }
+
+        textarea {
+            display: var(--main-color);
+            width: 50%;
+            max-width: 500px;
+            padding: 8px;
+            margin: 10px;
+            border: .2rem solid var(--main-color);
+        }
+
+        input {
+            border: .2rem solid var(--main-color);
+            display: block;
+            max-width: 500px;
+            width: 50%;
+            padding: 8px;
+            margin: 10px;
+        }
+
+        textarea:focus {
+            border-color: var(--main-color);
+        }
+
+        button {
+            padding: 0;
+            cursor: pointer;
+            background: transparent;
+            border: 0;
+            color: #00FA9A;
+
+        }
+
+        .button {
+            display: block;
+            box-sizing: content-box;
+            width: 200px;
+            padding: 8px;
+            margin: 0 10px 20px 10px;
+            border: .2rem solid var(--main-color);
+            cursor: pointer;
+            clear: both;
+        }
+
+        .button:hover {
+            background-color: var(--secondary-bg-color);
+            color: white;
+            border: .2rem solid var(--main-color);
+        }
+
+        .top {
+            text-align: right;
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            margin-bottom: 0.5em;
+        }
+
+        .close {
+            text-align: right;
+            height: 10px;
+            width: 10px;
+            position: relative;
+            box-sizing: border-box;
+            line-height: 10px;
+            display: inline-block;
+            color: white;
+        }
+
+        .notes {
+            padding-top: 25px;
+
+        }
+
+        .close:before,
+        .close:after {
+            transform: rotate(-45deg);
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -1px;
+            margin-left: -5px;
+            display: block;
+            height: 2px;
+            width: 10px;
+            background-color: white;
+            transition: all 0.25s ease-out;
+        }
+
+        .close:after {
+            transform: rotate(-135deg);
+        }
+
+        .close:hover:before,
+        .close:hover:after {
+            transform: rotate(0deg);
+        }
+
+        /* clock.css */
+        .content.disable {
+            cursor: no-drop;
+            display: flex;
+        }
+
+        .content .column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+            padding: 0 10px;
+            border-radius: 5px;
+            border: var(--main-color);
+            width: calc(100% / 3 - 5px);
+        }
+
+        .content.disable .column {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .column select {
+            width: 70%;
+            height: 40px;
+            border: 2px;
+            outline: none;
+            background: none;
+            font-size: 19px;
+            display: flex;
+            color: black;
+            background-color: white;
+            border-radius: 5px;
+        }
+
+        /* chart  */
+        .ch {
+            margin-bottom: 10px;
+        }
+
+        .chart-container {
+            max-width: 80%;
+        }
+
+        canvas {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        #usagechart {
+            visibility: visible;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin: 0 auto;
+            max-width: 1200px;
+            /* Adjust the width as needed */
+            padding: 20px;
+        }
+
+        .left-section {
+            flex: 1;
+            padding: 20px;
+            /* background-color: #fff; Adjust background color as needed */
+            border-radius: 10px;
+            margin-top: 20px;
+            /* box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); */
+        }
+
+        .right-section {
+            flex: 1;
+            padding-left: 180px;
+            padding-top: 50px;
+            /* background-color: #fff; Adjust background color as needed */
+            border-radius: 10px;
+            margin-top: 35px;
+            /* box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); */
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            /* Two columns, equal width */
+            gap: 20px;
+            /* Gap between columns */
+            max-width: 10000px;
+            /* Adjust as needed */
+            margin: 0 auto;
+            /* Center the grid container */
+        }
+
+
+
+
+        .clk {
+            margin: 0;
+            color: #00FA9A;
+            font-family: "Comfortaa", cursive;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .clock {
+            --clock-size: 360px;
+            width: var(--clock-size);
+            height: var(--clock-size);
+            position: relative;
+            border-radius: 50%;
+            margin-top: 20px;
+            /* Add margin-top to position the clock at the top */
+            margin-left: 20px;
+            /* Add margin-left to position the clock at the left */
+        }
+
+
+        .spike {
+            position: absolute;
+            width: 8px;
+            height: 1px;
+            background: #fff9;
+            line-height: 20px;
+            transform-origin: 50%;
+            z-index: 5;
+            inset: 0;
+            margin: auto;
+            font-style: normal;
+            transform: rotate(var(--rotate)) translateX(var(--dail-size));
+        }
+
+        .spike:nth-child(5n+1) {
+            box-shadow: -7px 0 #fff9;
+        }
+
+        .spike:nth-child(5n+1):after {
+            content: attr(data-i);
+            position: absolute;
+            right: 22px;
+            top: -10px;
+            transition: 1s linear;
+            transform: rotate(calc(var(--dRotate) - var(--rotate)));
+        }
+
+        .seconds {
+            --dRotate: 0deg;
+            --dail-size: calc((var(--clock-size)/ 2) - 8px);
+            font-weight: 800;
+            font-size: 18px;
+            transform: rotate(calc(-1 * var(--dRotate)));
+            position: absolute;
+            inset: 0;
+            margin: auto;
+            transition: 1s linear;
+        }
+
+        .minutes {
+            --dail-size: calc((var(--clock-size)/ 2) - 65px);
+            font-size: 16px;
+            transform: rotate(calc(-1 * var(--dRotate)));
+            position: absolute;
+            inset: 0;
+            margin: auto;
+            transition: 1s linear;
+        }
+
+        .stop-anim {
+            transition: 0s linear;
+        }
+
+        .stop-anim .spike:after {
+            transition: 0s linear !important;
+        }
+
+        .hour {
+            font-size: 70px;
+            font-weight: 900;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .minute {
+            font-size: 36px;
+            font-weight: 900;
+            position: absolute;
+            background: #000;
+            z-index: 10;
+            right: calc(var(--clock-size)/ 4.5);
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .minute:after {
+            content: "";
+            position: absolute;
+            border: 2px solid #fff;
+            border-right: none;
+            height: 50px;
+            left: -10px;
+            top: 50%;
+            border-radius: 40px 0 0 40px;
+            width: calc(var(--clock-size)/ 2.75);
+            transform: translatey(-50%);
+        }
+
+        .alarm-active {
+            color: white;
+        }
+
+        .clock-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* Align items to the right */
+            padding: 20px;
+        }
+    </style>
+</head>
+<div class="grid-container">
+    <!-- clock -->
+    <div class="left-section clock-container">
+        <div class="clk">
+            <div class="clock">
+                <div class="seconds"></div>
+                <div class="minutes"></div>
+                <div class="minute">44</div>
+                <div class="hour"></div>
+            </div>
+        </div>
+        <label for="alarmTime">Set Alarm Time:</label>
+        <input type="time" id="alarmTime">
+        <button class="button" onclick="setAlarm()">Set Alarm</button>
+        <div class="alarm-status">
+            <p style="color: aliceblue;" id="alarmStatusMessage"></p>
+        </div>
+        <audio id="alarmSound" src="alarm.mp3"></audio>
+    </div>
+    <!-- chart -->
+    <div class="right-section clock-container">
+        <h1 class="ch" style="color: white;">Usage Time Line Chart</h1>
+        <div class="chart-container" style="margin-top: 30px;">
+            <canvas id="usageChart"></canvas>
+
+        </div>
+        <h1 class="tol" style="color: aliceblue;margin-top: 30px;">Total minutes Used: <span
+                id="totalHoursUsed">0</span> minute</h1>
+    </div>
+</div>
+</div>
+<!-- notes -->
+<div class="notes">
+    <div id="app">
+        <h1>BIT NOTES</h1>
+        <input v-model="heading" placeholder="Enter heading for the notes" />
+        <textarea autofocus placeholder="Insert your note..." v-model="note.text"></textarea>
+        <button class="button" @click="addNote">Add Note</button>
+        <div v-for="(note, index) in notes">
+            <div class="top">
+                <button class="close" @click="removeNote(index)"></button>
+                <i></i>
+            </div>
+            <strong></strong><br>
+        </div>
+    </div>
+</div>
+<script>
+   var app = new Vue({
+        el: '#app',
+        data: {
+            title: 'Bit Notes',
+            heading: '',
+            note: {
+                text: '',
+                date: ''
+            },
+            notes: [{
+                heading: 'Bit Notes',
+                text: 'Initial note',
+                date: new Date(Date.now()).toLocaleString()
+            }]
+        },
+        methods: {
+            addNote() {
+                let { text } = this.note;
+                if (text === '') {
+                    return;
+                }
+                this.notes.push({
+                    heading: this.heading,
+                    text,
+                    date: new Date().toLocaleString(),
+                });
+                this.heading = '';
+                this.note.text = '';
+            },
+            removeNote(index) {
+                this.notes.splice(index, 1);
+            },
+        },
+        mounted() {
+            if (localStorage.getItem('notes')) {
+                this.notes = JSON.parse(localStorage.getItem('notes'));
+            }
+        },
+        watch: {
+            notes: {
+                handler() {
+                    localStorage.setItem('notes', JSON.stringify(this.notes));
+                },
+                deep: true,
+            },
+        },
+    });
+</script>
+<!-- Clock -->
+<script>
+    const seconds = document.querySelector('.seconds');
+    const minutes = document.querySelector('.minutes');
+    const minute = document.querySelector('.minute');
+    const hour = document.querySelector('.hour');
+
+    for (let s = 0; s < 60; s++) {
+        let mSpikeEl = document.createElement('i');
+        let sSpikeEl = document.createElement('i');
+        mSpikeEl.className = 'spike';
+        sSpikeEl.className = 'spike';
+        mSpikeEl.style = `--rotate:${6 * s}deg`;
+        sSpikeEl.style = `--rotate:${6 * s}deg`;
+        mSpikeEl.setAttribute('data-i', s);
+        sSpikeEl.setAttribute('data-i', s);
+
+        seconds.append(sSpikeEl);
+        minutes.append(mSpikeEl);
+    }
+
+    function getTime() {
+        let date = new Date(),
+            s = date.getSeconds(),
+            m = date.getMinutes();
+
+        hour.textContent = date.getHours();
+        minute.textContent = m;
+
+        minutes.style = `--dRotate:${6 * m}deg`;
+
+        if (s == 0) {
+            seconds.classList.add('stop-anim');
+        } else {
+            seconds.classList.remove('stop-anim');
+        }
+        if (m == 0) {
+            minutes.classList.add('stop-anim');
+        } else {
+            minutes.classList.remove('stop-anim');
+        }
+
+        seconds.style = `--dRotate:${6 * s}deg`;
+    }
+
+    setInterval(getTime, 1000);
+    getTime();
+
+    function setAlarm() {
+        const alarmTimeInput = document.getElementById('alarmTime').value;
+        const alarmStatusMessage = document.getElementById('alarmStatusMessage');
+        const alarmSound = document.getElementById('alarmSound');
+
+        if (alarmTimeInput) {
+            const [alarmHours, alarmMinutes] = alarmTimeInput.split(":").map(Number);
+            const currentTime = new Date();
+            const currentHours = currentTime.getHours();
+            const currentMinutes = currentTime.getMinutes();
+
+            const timeRemaining = (alarmHours * 60 + alarmMinutes) * 60 * 1000 -
+                (currentHours * 60 + currentMinutes) * 60 * 1000;
+
+            if (timeRemaining <= 0) {
+                alarmStatusMessage.textContent = 'Please select a future alarm time';
+                alert('Please select a future alarm time');
+            } else {
+                alarmStatusMessage.textContent = 'Alarm set';
+                setTimeout(() => {
+                    triggerAlarm();
+                }, timeRemaining);
+            }
+        } else {
+            alarmStatusMessage.textContent = 'Please select a valid alarm time';
+            alert('Please select a valid alarm time');
+        }
+    }
+
+    function triggerAlarm() {
+        const alarmStatusMessage = document.getElementById('alarmStatusMessage');
+        alarmStatusMessage.classList.add('alarm-active');
+        alarmStatusMessage.textContent = 'GREAT WORK!';
+        const alarmSound = document.getElementById('alarmSound');
+        alarmSound.play();
+        alert('It\'s time!');
+    }
+</script>
+<!-- chart -->
+<script>
+    // Initialize the chart with default data
+    // Initialize the chart with default data
+    // Initialize the chart with default data
+    const initialData = [0, 0, 0, 0]; // Initial data for Morning, Afternoon, Evening, Night
+    const chartCanvas = document.getElementById('usageChart');
+    const ctx = chartCanvas.getContext('2d');
+
+    const defaultChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Morning', 'Afternoon', 'Evening', 'Night'],
+            datasets: [{
+                data: initialData,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.6)',
+                    'rgba(255, 205, 86, 0.6)',
+                    'rgba(54, 162, 235, 0.6)',
+                    'rgba(75, 192, 192, 0.6)'
+                ]
+            }]
+        }
+    });
+
+    let morningUsage = initialData[0];
+    let afternoonUsage = initialData[1];
+    let eveningUsage = initialData[2];
+    let nightUsage = initialData[3];
+
+    // Function to update the chart data
+    function updateChart() {
+        const currentTime = new Date();
+        const currentHour = currentTime.getHours();
+
+        if (currentHour >= 6 && currentHour < 12) {
+            morningUsage++;
+        } else if (currentHour >= 12 && currentHour < 18) {
+            afternoonUsage++;
+        } else if (currentHour >= 18 && currentHour < 24) {
+            eveningUsage++;
+        } else {
+            nightUsage++;
+        }
+
+        // Update the chart data
+        defaultChart.data.datasets[0].data = [morningUsage, afternoonUsage, eveningUsage, nightUsage];
+        defaultChart.update();
+
+        // Store chart data in localStorage
+        localStorage.setItem('chartData', JSON.stringify(defaultChart.data.datasets[0].data));
+
+        // Store time data in localStorage
+        localStorage.setItem('morningUsage', morningUsage);
+        localStorage.setItem('afternoonUsage', afternoonUsage);
+        localStorage.setItem('eveningUsage', eveningUsage);
+        localStorage.setItem('nightUsage', nightUsage);
+
+        // Calculate total minutes used
+        const totalMinutesUsed = (morningUsage) + (afternoonUsage) + (eveningUsage) + nightUsage;
+
+        // Display total minutes used on the web page
+        const totalMinutesUsedElement = document.getElementById('totalHoursUsed');
+        totalMinutesUsedElement.textContent = totalMinutesUsed + ' minutes';
+    }
+
+    // Retrieve chart data from localStorage when initializing the chart
+    const storedChartData = JSON.parse(localStorage.getItem('chartData'));
+    if (storedChartData) {
+        defaultChart.data.datasets[0].data = storedChartData;
+        defaultChart.update();
+    }
+
+    // Retrieve time data from localStorage when initializing the script
+    const storedMorningUsage = parseInt(localStorage.getItem('morningUsage')) || 0;
+    const storedAfternoonUsage = parseInt(localStorage.getItem('afternoonUsage')) || 0;
+    const storedEveningUsage = parseInt(localStorage.getItem('eveningUsage')) || 0;
+    const storedNightUsage = parseInt(localStorage.getItem('nightUsage')) || 0;
+
+    // Initialize the time data with stored values
+    morningUsage = storedMorningUsage;
+    afternoonUsage = storedAfternoonUsage;
+    eveningUsage = storedEveningUsage;
+    nightUsage = storedNightUsage;
+
+    // Call the updateChart function to display the default chart
+    updateChart();
+
+    // Update the chart data every minute
+    setInterval(updateChart, 60000);
+
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+</body>
+
+</html>

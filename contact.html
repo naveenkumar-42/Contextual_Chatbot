@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIT BOT</title>
+
+    <link rel="icon" type="image/x-icon" href="/img/icon.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+</head>
+
+<body>
+    <!-- Header Design -->
+    <header class="header">
+        <img style="font-size:36px;color:white; margin-left:0;" src="/img/icon.png" width="50" height="50" alt=""
+            title="" class="img-small">
+        <a style="margin-right:350px;" href="#" class="logo">BIT<span class="animate" style="--i:1;">BOT</span></a>
+        <div class="bx bx-menu" id="menu-icon"><span class="animate" style="--i:2;"></span></div>
+        <nav class="navbar">
+            <a href="#" class="active">Home</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="bitchat.html">BitChat</a>
+            <a href="voicechat.html">Voicechat</a>
+            <a href="contact.html">Contact</a>
+            <a class="log" style="color: #00fa9a;" href="#">Log-out</a>
+            <a class="darkmode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                    class="bi bi-brightness-high" viewBox="0 0 16 16">
+                    <path
+                        d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
+                </svg>
+            </a>
+            <span class="active-nav"></span>
+            <span class="animate" style="--i:2;"></span>
+        </nav>
+    </header>
+
+
+
+    <section class="contact" id="contact">
+        <h2 class="heading">Contact<span>Us</span></h2>
+        <form action="https://formspree.io/f/moqzggqb" method="POST" class="contact__form">
+            <div class="input-box">
+                <div class="input-field">
+                    <input type="text" name="First Name" placeholder="First Name" required>
+                    <span class="focus"></span>
+                </div>
+
+                <div class="input-field">
+                    <input type="text" name="Last Name" placeholder="Last Name" required>
+                    <span class="focus"></span>
+                </div>
+            </div>
+
+            <div class="input-box">
+                <div class="input-field">
+                    <input type="number" name="Mobile Number" placeholder="Your Mobile Number" required>
+                    <span class="focus"></span>
+                </div>
+
+                <div class="input-field">
+                    <input type="email" name="Email address" placeholder="Email Address" required>
+                    <span class="focus"></span>
+                </div>
+
+            </div>
+
+
+            <div class="textarea-field">
+                <textarea name="Message" cols="30" rows="10" placeholder="Your message is required...."></textarea>
+                <span class="focus"></span>
+            </div>
+
+            <div class="btn-box btns">
+                <button type="submit" class="btn">Submit</button>
+            </div>
+        </form>
+    </section>
+    <script src="{% static 'app1/js/app1_script.js' %}"></script>
+</body>
+
+</html>
