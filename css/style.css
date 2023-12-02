@@ -87,8 +87,7 @@ section {
   display: flex;
   align-items: center;
   padding: 0 9%;
-  background: url('/img/app1_bot.png') no-repeat;
-  /* Updated URL */
+  background: url('./img/app1_bot.png') no-repeat;
   background-size: 500px 650px;
   margin-top: 1rem;
   background-position: 90% center;
